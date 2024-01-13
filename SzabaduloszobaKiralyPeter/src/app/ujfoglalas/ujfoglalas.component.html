@@ -1,0 +1,49 @@
+
+<!-- 
+"id": "1",
+"cim": "Székesfehérvár, Teve u. 64.", -2
+"datum": "2020-07-24", -4
+"fo": "6", -5
+"iranyitoszam": "8000", -3
+"nev": "Barna Miklós" -1
+-->
+
+<div class="inputForm">
+    
+    <form class="foglalas-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Név</mat-label>
+          <input matInput type="text" placeholder="Név">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cím</mat-label>
+            <input matInput type="text" placeholder="Cím">
+        </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Irányítószám</mat-label>
+            <input matInput type="number" placeholder="Irányítószám">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>YYYY/MM/DD</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+
+          <mat-form-field appearance="outline">
+            <mat-label>Jelentkezők száma</mat-label>
+            <input matInput type="number">
+          </mat-form-field>
+
+    </form>
+</div>
+
+<div class="actions">
+    <button mat-flat-button color="primary">Mentés</button>
+    <button mat-flat-button color="primary">Mégsem</button>
+</div>
