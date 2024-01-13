@@ -12,4 +12,8 @@ export class FoglalasokService {
   addFoglalas(data: any): Observable<any>{
     return this.http.post('http://localhost:3000/foglalasok', data);
   }
+
+  getFoglalasList(): Observable<any>{
+    return this.http.get('http://localhost:3000/foglalasok');
+  }
 }

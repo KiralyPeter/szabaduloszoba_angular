@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FoglalasokService } from '../services/foglalasok.service';
 
 
 /* 
@@ -15,6 +16,22 @@ import { Component } from '@angular/core';
   templateUrl: './foglalasok.component.html',
   styleUrls: ['./foglalasok.component.scss']
 })
-export class FoglalasokComponent {
+export class FoglalasokComponent implements OnInit{
 
+  constructor(private foglalasokService: FoglalasokService){}
+
+  ngOnInit(): void {
+      this.getFoglalasokList();
+  }
+
+  getFoglalasokList(){
+    this.foglalasokService.getFoglalasList().subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
 }

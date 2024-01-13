@@ -34,7 +34,7 @@ export class UjfoglalasComponent {
 
   onFormSubmit(){
     if(this.foglalasForm.valid){
-      console.log(this.foglalasForm.value);
+      // console.log(this.foglalasForm.value);
       this.foglalasokService.addFoglalas(this.foglalasForm.value).subscribe({
         next: (val: any) => {
           alert('Foglalás sikeresen hozzáadva');
