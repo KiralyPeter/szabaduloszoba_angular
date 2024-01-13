@@ -1,8 +1,19 @@
 .inputForm{
     padding-top: 10px; 
+    mat-form-field {
+        margin: 5px;
+        padding: 5px;
+    }
 }
 
 .foglalas-form{
+    padding-top: 5%;
+    margin: 0 auto;
+    max-width: 70%;
     display: flex;
     gap: 10px;
+}
+
+button {
+    margin: 5px;
 }

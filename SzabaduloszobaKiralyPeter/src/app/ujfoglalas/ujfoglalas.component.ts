@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FoglalasokService } from '../services/foglalasok.service';
+import { Router } from '@angular/router';
+
 
 
 /* 
@@ -18,11 +20,13 @@ import { FoglalasokService } from '../services/foglalasok.service';
   templateUrl: './ujfoglalas.component.html',
   styleUrls: ['./ujfoglalas.component.scss']
 })
-export class UjfoglalasComponent {
+export class UjfoglalasComponent implements OnInit{
 
   foglalasForm: FormGroup;
+  today = new Date;
+ 
 
-  constructor(private formbuilder:FormBuilder, private foglalasokService:FoglalasokService){
+  constructor(private formbuilder:FormBuilder, private foglalasokService:FoglalasokService, private router: Router){
     this.foglalasForm = this.formbuilder.group({
       cim: '',
       datum: '',
@@ -31,19 +35,27 @@ export class UjfoglalasComponent {
       nev: ''
     })
   }
-
+  ngOnInit(): void {
+    this.getToday();
+  } 
   onFormSubmit(){
     if(this.foglalasForm.valid){
       // console.log(this.foglalasForm.value);
       this.foglalasokService.addFoglalas(this.foglalasForm.value).subscribe({
-        next: (val: any) => {
-          alert('Foglalás sikeresen hozzáadva');
+        next: (val: any) => { // majd itt kell a lekérdező oldalt megnyitni...
+          alert('Foglalás sikeresen hozzáadva');   
+          this.router.navigate(['/foglalasok']);
         },
         error: (err: any) => {
           console.error(err)
         }
       })
     }
+  }
+
+  getToday(){
+    this.today = new Date();
+    console.log('Mai nap: ', this.today);
   }
 
 }
