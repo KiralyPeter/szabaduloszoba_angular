@@ -53,6 +53,10 @@ export class UjfoglalasComponent implements OnInit{
     }
   }
 
+  goToFoglalasok(){
+    this.router.navigate(['/foglalasok']);
+  }
+
   getToday(){
     this.today = new Date();
     console.log('Mai nap: ', this.today);
